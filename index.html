@@ -5,8 +5,8 @@
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "아동수당·양육수당·첫만남이용권 계산기 | 2026 최신 공식 기준",
-    "description": "아동수당·양육수당·첫만남이용권 계산기 - 브라우저 100% 로컬 연산 및 실시간 결과 모의 시뮬레이터.",
+    "name": "2026 아동수당·부모급여·첫만남이용권 통합 수령액 계산기",
+    "description": "2026년 최신 보건복지부 아동복지 기준 적용. 부모급여(0세 월 100만원, 1세 월 50만원), 아동수당(0~7세 월 10만원), 첫만남이용권(첫째 200만/둘째 300만) 총 수령액 및 월별 지급액 실시간 계산기.",
     "url": "https://child-subsidy-calc.enjoy-onepage.com/",
     "applicationCategory": "FinanceApplication",
     "operatingSystem": "All",
@@ -20,14 +20,30 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>아동수당·양육수당·첫만남이용권 계산기 | 2026 최신 공식 기준</title>
-  <meta name="description" content="아동수당·양육수당·첫만남이용권 계산기 - 브라우저 100% 로컬 연산 및 실시간 결과 모의 시뮬레이터.">
+  <title>아동수당·부모급여·첫만남이용권 계산기 | 2026 최신 공식 기준</title>
+  <meta name="description" content="2026년 최신 공식 지원금! 0세 월 110만원, 1세 월 60만원 부모급여+아동수당 및 첫만남이용권까지 우리 아이 누적 정부 지원금 실시간 통합 계산기.">
+  <meta name="keywords" content="아동수당 계산기, 부모급여 계산기, 2026 부모급여, 첫만남이용권, 육아지원금, 양육수당">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://child-subsidy-calc.enjoy-onepage.com/">
+  
+  <!-- Open Graph / SNS -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://child-subsidy-calc.enjoy-onepage.com/">
+  <meta property="og:title" content="2026 아동수당·부모급여·첫만남이용권 통합 계산기">
+  <meta property="og:description" content="우리 아이 태어나서 8세까지 총 얼마 받을까? 부모급여 + 아동수당 + 첫만남이용권 실시간 계산!">
+  <meta property="og:image" content="https://child-subsidy-calc.enjoy-onepage.com/og-image.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://child-subsidy-calc.enjoy-onepage.com/">
+  <meta property="twitter:title" content="2026 아동수당·부모급여·첫만남이용권 통합 계산기">
+  <meta property="twitter:description" content="우리 아이 태어나서 8세까지 총 얼마 받을까? 부모급여 + 아동수당 + 첫만남이용권 실시간 계산!">
+  <meta property="twitter:image" content="https://child-subsidy-calc.enjoy-onepage.com/og-image.png">
+
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <script src="https://cdn.tailwindcss.com"></script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2228289204702106" crossorigin="anonymous"></script>
-  <link rel="alternate" type="application/rss+xml" title="아동수당·양육수당·첫만남이용권 계산기 | 2026 최신 공식 기준 RSS Feed" href="https://child-subsidy-calc.enjoy-onepage.com/rss.xml" />
+  <link rel="alternate" type="application/rss+xml" title="아동수당·부모급여·첫만남이용권 계산기 RSS Feed" href="https://child-subsidy-calc.enjoy-onepage.com/rss.xml" />
   <link rel="sitemap" type="application/xml" title="Sitemap" href="https://child-subsidy-calc.enjoy-onepage.com/sitemap.xml" />
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased font-sans min-h-screen flex flex-col justify-between">
@@ -35,18 +51,23 @@
   <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
     <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
       <a href="/" class="flex items-center gap-2 text-slate-900 font-bold text-lg hover:text-blue-600 transition">
-        <span class="w-8 h-8 rounded-lg bg-blue-600 text-white flex items-center justify-center font-black text-sm shadow-sm">도구</span>
-        <span>아동수당·양육수당·첫만남이용권 계산기</span>
+        <span class="w-8 h-8 rounded-lg bg-pink-500 text-white flex items-center justify-center font-black text-sm shadow-sm">육아</span>
+        <span>2026 아동·부모급여 계산기</span>
       </a>
       <nav class="flex items-center gap-4 text-xs font-semibold text-slate-600">
-        <a href="/about.html" class="hover:text-blue-600">산출 공식</a>
-        <a href="/guides/guide1.html" class="hover:text-blue-600">실무 가이드</a>
+        <a href="/about.html" class="hover:text-blue-600">지원금 기준표</a>
+        <a href="/guides/guide1.html" class="hover:text-blue-600">신청 가이드</a>
         <a href="/privacy.html" class="hover:text-blue-600">개인정보처리</a>
       </nav>
     </div>
   </header>
 
   <main class="max-w-5xl mx-auto px-4 py-6 w-full flex-grow">
+    <div class="mb-4">
+      <h1 class="text-xl sm:text-2xl font-black text-slate-900">2026 아동수당·부모급여·첫만남이용권 통합 수령액 계산기</h1>
+      <p class="text-xs sm:text-sm text-slate-600 mt-1">보건복지부 최신 기준 0세~8세 미만(총 96개월) 아동 1인당 지급되는 국가 지원금 총액 및 월별 지급액 모의 산출</p>
+    </div>
+
     <!-- 상단 슬림 배너 -->
     <div class="manual-ad-box ad-top-banner" style="width: 100%; max-width: 960px; margin: 0 auto 20px; overflow: hidden; text-align: center; min-height: 50px; max-height: 90px;">
       <ins class="adsbygoogle"
@@ -64,28 +85,52 @@
       <section class="lg:col-span-6 bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
         <div class="flex items-center justify-between border-b border-slate-100 pb-3">
           <h2 class="text-base font-bold text-slate-900 flex items-center gap-2">
-            <span class="w-2 h-4 bg-blue-600 rounded-full"></span>
-            기본 정보 및 조건 입력
+            <span class="w-2 h-4 bg-pink-500 rounded-full"></span>
+            아동 정보 및 양육 방식 선택
           </h2>
-          <span class="text-xs text-blue-600 bg-blue-50 px-2.5 py-1 rounded-full font-semibold">100% 로컬 연산</span>
+          <span class="text-xs text-pink-600 bg-pink-50 px-2.5 py-1 rounded-full font-semibold">2026 보건복지부 기준</span>
         </div>
 
+        <!-- 1. 출생 순위 (첫만남이용권 바우처) -->
         <div>
-          <label class="block text-xs font-bold text-slate-600 mb-1.5">기준 금액 또는 대상 수치 입력</label>
-          <input type="number" id="inputVal1" class="w-full p-3 text-right font-bold text-lg border border-slate-200 bg-slate-50 focus:bg-white rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition" placeholder="1000000" value="1000000">
+          <label class="block text-xs font-bold text-slate-600 mb-1.5">1. 아동 출생 순위 (첫만남이용권 산정)</label>
+          <div class="grid grid-cols-2 gap-2">
+            <label class="flex items-center justify-center p-3 border rounded-xl cursor-pointer text-xs font-bold transition select-none bg-pink-50 border-pink-500 text-pink-700" id="labelBirth1">
+              <input type="radio" name="birthOrder" value="1" checked class="hidden"> 👶 첫째 아이 (200만원)
+            </label>
+            <label class="flex items-center justify-center p-3 border rounded-xl cursor-pointer text-xs font-bold transition select-none bg-white border-slate-200 text-slate-600" id="labelBirth2">
+              <input type="radio" name="birthOrder" value="2" class="hidden"> 👶 둘째 이상 (300만원)
+            </label>
+          </div>
         </div>
 
+        <!-- 2. 아이의 현재 만 나이 (월령) -->
         <div>
-          <label class="block text-xs font-bold text-slate-600 mb-1.5">조건 및 분류 선택</label>
-          <select id="selectType" class="w-full p-3 font-semibold text-sm border border-slate-200 bg-slate-50 focus:bg-white rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition">
-            <option value="standard">일반 표준 조건 적용</option>
-            <option value="special">우대 및 특례 감면 조건</option>
-            <option value="advanced">심화 다중 복합 조건</option>
+          <label class="block text-xs font-bold text-slate-600 mb-1.5">2. 아이의 현재 월령 (0개월 ~ 95개월)</label>
+          <div class="relative">
+            <input type="number" id="childAgeMonths" min="0" max="95" class="w-full p-3 text-right font-bold text-lg border border-slate-200 bg-slate-50 focus:bg-white rounded-xl focus:ring-2 focus:ring-pink-500 outline-none transition pr-12" placeholder="0" value="0">
+            <span class="absolute right-3.5 top-3.5 text-sm font-bold text-slate-500">개월</span>
+          </div>
+          <div class="flex gap-1.5 mt-1.5 flex-wrap">
+            <button type="button" class="px-2 py-1 bg-slate-100 hover:bg-slate-200 text-slate-600 text-xs rounded font-medium set-month-btn" data-month="0">신생아 (0개월)</button>
+            <button type="button" class="px-2 py-1 bg-slate-100 hover:bg-slate-200 text-slate-600 text-xs rounded font-medium set-month-btn" data-month="6">6개월</button>
+            <button type="button" class="px-2 py-1 bg-slate-100 hover:bg-slate-200 text-slate-600 text-xs rounded font-medium set-month-btn" data-month="12">돌 (12개월)</button>
+            <button type="button" class="px-2 py-1 bg-slate-100 hover:bg-slate-200 text-slate-600 text-xs rounded font-medium set-month-btn" data-month="24">두돌 (24개월)</button>
+          </div>
+        </div>
+
+        <!-- 3. 보육 방식 (어린이집/가정양육) -->
+        <div>
+          <label class="block text-xs font-bold text-slate-600 mb-1.5">3. 현재 양육 형태</label>
+          <select id="careType" class="w-full p-3 font-semibold text-sm border border-slate-200 bg-slate-50 focus:bg-white rounded-xl focus:ring-2 focus:ring-pink-500 outline-none transition">
+            <option value="home" selected>가정 양육 (부모급여 현금 100% 수령)</option>
+            <option value="daycare">어린이집 / 놀이방 이용 (보육료 바우처 차감 후 차액 현금 지급)</option>
           </select>
+          <p class="text-xs text-slate-500 mt-1">* 0~1세 아동이 어린이집 이용 시 보육료 바우처를 초과하는 부모급여 차액(0세 약 46만원, 1세 약 2.5만원)이 현금 지급됩니다.</p>
         </div>
 
-        <button type="button" id="calcBtn" class="w-full py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl shadow-md transition text-sm">
-          실시간 시뮬레이션 계산 🚀
+        <button type="button" id="calcBtn" class="w-full py-3.5 bg-pink-600 hover:bg-pink-700 text-white font-bold rounded-xl shadow-md transition text-sm">
+          정부 지원금 수령 견적 산출 🚀
         </button>
       </section>
 
@@ -94,22 +139,42 @@
         <div class="flex items-center justify-between border-b border-slate-100 pb-3">
           <h2 class="text-base font-bold text-slate-900 flex items-center gap-2">
             <span class="w-2 h-4 bg-emerald-500 rounded-full"></span>
-            모의 산출 및 분석 결과
+            아동 지원금 모의 수령 견적
           </h2>
-          <span class="text-xs text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full font-semibold">자동 갱신</span>
+          <span class="text-xs text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full font-semibold">실시간 자동계산</span>
         </div>
 
         <div class="p-5 bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-xl text-center space-y-1">
-          <p class="text-xs text-slate-400 font-medium">최종 예상 산출 결과</p>
-          <div class="text-3xl font-black text-emerald-400" id="resultDisplay">1,250,000 원</div>
-          <p class="text-xs text-slate-300 mt-2">* 법정 최신 개정 규정에 따른 모의 견적입니다.</p>
+          <p class="text-xs text-slate-400 font-medium">이번 달 바로 입금되는 현금 지원액</p>
+          <div class="text-3xl font-black text-pink-400" id="resultThisMonth">1,100,000 원 / 월</div>
+          <p class="text-xs text-slate-300 mt-2" id="resultMonthDesc">부모급여 100만원 + 아동수당 10만원</p>
         </div>
 
         <div class="space-y-2 text-xs text-slate-600 bg-slate-50 p-4 rounded-xl border border-slate-200">
-          <div class="flex justify-between"><span>기본 산정액:</span><span class="font-bold text-slate-800" id="resBase">1,000,000 원</span></div>
-          <div class="flex justify-between"><span>가산 및 조정액:</span><span class="font-bold text-blue-600" id="resAdjust">+250,000 원</span></div>
-          <div class="flex justify-between border-t border-slate-200 pt-1.5 font-bold text-slate-900"><span>합계 견적:</span><span id="resTotal">1,250,000 원</span></div>
+          <div class="flex justify-between font-bold text-slate-900 pb-1 border-b border-slate-200">
+            <span>총 누적 수령 가능 총액 (출생 ~ 8세 미만):</span>
+            <span class="text-emerald-600 text-base" id="resTotalCumulative">29,600,000 원</span>
+          </div>
+          <div class="flex justify-between pt-1"><span>첫만남이용권 바우처 (1회성):</span><span class="font-bold text-slate-800" id="resFirstMeeting">2,000,000 원</span></div>
+          <div class="flex justify-between"><span>부모급여 총액 (0~23개월, 24회):</span><span class="font-bold text-blue-600" id="resParentalTotal">18,000,000 원</span></div>
+          <div class="flex justify-between pl-3 text-slate-500"><span>- 만 0세 (0~11개월, 월 100만 × 12회):</span><span>12,000,000 원</span></div>
+          <div class="flex justify-between pl-3 text-slate-500"><span>- 만 1세 (12~23개월, 월 50만 × 12회):</span><span>6,000,000 원</span></div>
+          <div class="flex justify-between"><span>아동수당 총액 (0~95개월, 96회):</span><span class="font-bold text-purple-600" id="resChildTotal">9,600,000 원</span></div>
+          <div class="flex justify-between pl-3 text-slate-500"><span>- 매월 25일 10만원씩 지급:</span><span>월 100,000 원</span></div>
+          <div class="flex justify-between border-t border-slate-200 pt-1.5 font-bold text-slate-800">
+            <span>향후 잔여 수령 가능액 (현재 월령 이후):</span>
+            <span class="text-blue-600" id="resRemainingTotal">29,600,000 원</span>
+          </div>
         </div>
+
+        <div class="p-3 bg-pink-50 text-pink-900 rounded-xl text-xs space-y-1 leading-relaxed border border-pink-100">
+          <p class="font-bold">🍼 지급일 및 신청 꿀팁:</p>
+          <p>아동수당과 부모급여는 <strong>매월 25일</strong> 계좌로 입금됩니다. 출생일로부터 60일 이내에 신청하면 출생 달부터 소급하여 전액 지급받을 수 있습니다(정부24 또는 행복e음 복지로 신청).</p>
+        </div>
+
+        <button type="button" onclick="copyResultToClipboard()" class="w-full py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl text-xs transition flex items-center justify-center gap-2">
+          <span>📋</span> 지원금 계산 견적 복사하기
+        </button>
       </section>
     </div>
 
@@ -124,11 +189,51 @@
       <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
 
-    <!-- 하단 심화 안내 섹션 -->
-    <section class="bg-white rounded-2xl p-6 mt-6 border border-slate-200 shadow-sm space-y-3">
-      <h3 class="text-sm font-bold text-slate-900">💡 아동수당·양육수당·첫만남이용권 계산기 공식 산출 안내 및 유의사항</h3>
-      <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-        본 계산기는 사용자 브라우저 메모리 상에서 실시간으로 산출 수식을 모의 검증합니다. 개별적인 자격 요건이나 계약 특약에 따라 실제 결과와 차이가 발생할 수 있으므로 구체적인 사항은 공식 전문 가이드를 참고하시기 바랍니다.
+    <!-- 법정 지원금 상세 기준표 -->
+    <section class="bg-white rounded-2xl p-6 mt-6 border border-slate-200 shadow-sm space-y-4">
+      <h3 class="text-sm font-bold text-slate-900 flex items-center gap-2">
+        <span>📖</span> 2026년 대한민국 영유아 복지 급여 공식 체계표
+      </h3>
+      <div class="overflow-x-auto">
+        <table class="w-full text-xs text-left border-collapse">
+          <thead>
+            <tr class="bg-slate-100 text-slate-700 border-b border-slate-200">
+              <th class="p-2.5 font-bold">지원 항목</th>
+              <th class="p-2.5 font-bold">지원 연령</th>
+              <th class="p-2.5 font-bold">지원 금액</th>
+              <th class="p-2.5 font-bold">지급 방식 및 특징</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100 text-slate-600">
+            <tr>
+              <td class="p-2.5 font-bold text-slate-900">첫만남이용권</td>
+              <td class="p-2.5">출생 아동</td>
+              <td class="p-2.5 font-bold text-pink-600">첫째 200만 / 둘째+ 300만</td>
+              <td class="p-2.5">국민행복카드 바우처(포인트) 일시 지급 (사용기간 1년)</td>
+            </tr>
+            <tr>
+              <td class="p-2.5 font-bold text-slate-900">만 0세 부모급여</td>
+              <td class="p-2.5">0 ~ 11개월</td>
+              <td class="p-2.5 font-bold text-blue-600">월 100만원</td>
+              <td class="p-2.5">매월 25일 현금 (어린이집 이용 시 보육료 바우처 차감 후 차액 입금)</td>
+            </tr>
+            <tr>
+              <td class="p-2.5 font-bold text-slate-900">만 1세 부모급여</td>
+              <td class="p-2.5">12 ~ 23개월</td>
+              <td class="p-2.5 font-bold text-blue-600">월 50만원</td>
+              <td class="p-2.5">매월 25일 현금 (어린이집 이용 시 보육료 바우처 차감 후 차액 입금)</td>
+            </tr>
+            <tr>
+              <td class="p-2.5 font-bold text-slate-900">아동수당</td>
+              <td class="p-2.5">0 ~ 95개월 (만 8세 미만)</td>
+              <td class="p-2.5 font-bold text-purple-600">월 10만원 (총 960만원)</td>
+              <td class="p-2.5">부모의 소득·재산 무관 100% 전원 현금 계좌 입금</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-slate-500 leading-relaxed">
+        * 지자체별 출산축하금(서울시, 경기도 등)은 지자체 조례에 따라 추가 지급될 수 있으며 본 계산기 산출액에 포함되지 않은 순수 국비/시비 지원금 기준입니다.
       </p>
     </section>
 
@@ -151,63 +256,214 @@
       <a href="/guides/guide1.html" class="hover:text-blue-600">실무 가이드</a>
       <a href="/sitemap.xml" class="hover:text-blue-600">사이트맵</a>
     </div>
-    <p>&copy; 2026 아동수당·양육수당·첫만남이용권 계산기. All rights reserved.</p>
+    <p>&copy; 2026 아동수당·부모급여·첫만남이용권 계산기. All rights reserved.</p>
   </footer>
 
+  <!-- 100% 정밀 아동복지 산출 로직 -->
   <script>
-    function updateCalc() {
-      const v = parseFloat(document.getElementById('inputVal1').value) || 0;
-      const type = document.getElementById('selectType').value;
-      let mult = 1.25;
-      if (type === 'special') mult = 1.15;
-      if (type === 'advanced') mult = 1.4;
-      const total = Math.round(v * mult);
-      const adj = total - v;
-      document.getElementById('resultDisplay').textContent = total.toLocaleString() + ' 원';
-      document.getElementById('resBase').textContent = Math.round(v).toLocaleString() + ' 원';
-      document.getElementById('resAdjust').textContent = (adj >= 0 ? '+' : '') + Math.round(adj).toLocaleString() + ' 원';
-      document.getElementById('resTotal').textContent = total.toLocaleString() + ' 원';
+    function parseNum(val) {
+      if (!val) return 0;
+      const clean = String(val).replace(/[^0-9]/g, '');
+      return clean ? parseInt(clean, 10) : 0;
     }
-    document.getElementById('inputVal1').addEventListener('input', updateCalc);
-    document.getElementById('selectType').addEventListener('change', updateCalc);
-    document.getElementById('calcBtn').addEventListener('click', updateCalc);
-    updateCalc();
+
+    function formatKRW(num) {
+      return Number(num).toLocaleString('ko-KR') + ' 원';
+    }
+
+    function getSelectedBirthOrder() {
+      const el = document.querySelector('input[name="birthOrder"]:checked');
+      return el ? parseInt(el.value, 10) : 1;
+    }
+
+    function updateRadioStyles() {
+      const birthOrder = getSelectedBirthOrder();
+      const l1 = document.getElementById('labelBirth1');
+      const l2 = document.getElementById('labelBirth2');
+
+      if (birthOrder === 1) {
+        if (l1) l1.className = 'flex items-center justify-center p-3 border rounded-xl cursor-pointer text-xs font-bold transition select-none bg-pink-50 border-pink-500 text-pink-700';
+        if (l2) l2.className = 'flex items-center justify-center p-3 border rounded-xl cursor-pointer text-xs font-bold transition select-none bg-white border-slate-200 text-slate-600';
+      } else {
+        if (l1) l1.className = 'flex items-center justify-center p-3 border rounded-xl cursor-pointer text-xs font-bold transition select-none bg-white border-slate-200 text-slate-600';
+        if (l2) l2.className = 'flex items-center justify-center p-3 border rounded-xl cursor-pointer text-xs font-bold transition select-none bg-pink-50 border-pink-500 text-pink-700';
+      }
+    }
+
+    function calculateSubsidies() {
+      const birthOrder = getSelectedBirthOrder();
+      const currentMonth = Math.min(95, Math.max(0, parseNum(document.getElementById('childAgeMonths').value)));
+      const careType = document.getElementById('careType').value;
+
+      // 1. 첫만남이용권: 첫째 200만원, 둘째 이상 300만원
+      const firstMeetingVoucher = (birthOrder === 1) ? 2000000 : 3000000;
+
+      // 2. 부모급여: 만 0세(0~11개월) 월 100만, 만 1세(12~23개월) 월 50만
+      // 어린이집 이용 시 보육료 바우처 차감: 0세(약 54만원 차감 -> 현금 약 460,000원), 1세(약 47.5만원 차감 -> 현금 약 25,000원)
+      let thisMonthParental = 0;
+      let thisMonthParentalDesc = '';
+
+      if (currentMonth <= 11) {
+        if (careType === 'home') {
+          thisMonthParental = 1000000;
+          thisMonthParentalDesc = '만 0세 부모급여 100만원';
+        } else {
+          thisMonthParental = 460000;
+          thisMonthParentalDesc = '만 0세 보육료 차감 후 부모급여 차액 46만원';
+        }
+      } else if (currentMonth <= 23) {
+        if (careType === 'home') {
+          thisMonthParental = 500000;
+          thisMonthParentalDesc = '만 1세 부모급여 50만원';
+        } else {
+          thisMonthParental = 25000;
+          thisMonthParentalDesc = '만 1세 보육료 차감 후 부모급여 차액 2.5만원';
+        }
+      } else {
+        thisMonthParental = 0;
+        thisMonthParentalDesc = '부모급여 지원 종료 (만 2세 이상)';
+      }
+
+      // 3. 아동수당: 0~95개월(만 8세 생일 전월까지 총 96개월) 매월 10만원
+      let thisMonthChild = 0;
+      if (currentMonth <= 95) {
+        thisMonthChild = 100000;
+      }
+
+      // 이번 달 수령 합계
+      const thisMonthTotal = thisMonthParental + thisMonthChild;
+
+      // 4. 누적 총액 (가정양육 기준 생애 총 수령 가능액)
+      const parentalTotalLifetime = (1000000 * 12) + (500000 * 12); // 1,800만원
+      const childTotalLifetime = 100000 * 96; // 960만원
+      const totalCumulativeLifetime = firstMeetingVoucher + parentalTotalLifetime + childTotalLifetime; // 2,960만 또는 3,060만
+
+      // 5. 현재 월령 기준 향후 잔여 수령액
+      let remainingParental = 0;
+      for (let m = currentMonth; m <= 23; m++) {
+        if (m <= 11) remainingParental += (careType === 'home' ? 1000000 : 460000);
+        else remainingParental += (careType === 'home' ? 500000 : 25000);
+      }
+
+      let remainingChild = 0;
+      if (currentMonth <= 95) {
+        remainingChild = (96 - currentMonth) * 100000;
+      }
+
+      const remainingTotal = remainingParental + remainingChild;
+
+      // 6. DOM 바인딩
+      const resThisMonth = document.getElementById('resultThisMonth');
+      const resMonthDesc = document.getElementById('resultMonthDesc');
+      const resTotalCumulative = document.getElementById('resTotalCumulative');
+      const resFirstMeeting = document.getElementById('resFirstMeeting');
+      const resParentalTotal = document.getElementById('resParentalTotal');
+      const resChildTotal = document.getElementById('resChildTotal');
+      const resRemainingTotal = document.getElementById('resRemainingTotal');
+
+      if (resThisMonth) resThisMonth.textContent = formatKRW(thisMonthTotal) + ' / 월';
+      if (resMonthDesc) {
+        if (thisMonthTotal > 0) {
+          resMonthDesc.textContent = `${thisMonthParentalDesc} + 아동수당 ${formatKRW(thisMonthChild)}`;
+        } else {
+          resMonthDesc.textContent = '현재 월령은 정기 지원금 지급 대상 연령(만 8세 미만)을 경과하였습니다.';
+        }
+      }
+
+      if (resTotalCumulative) resTotalCumulative.textContent = formatKRW(totalCumulativeLifetime);
+      if (resFirstMeeting) resFirstMeeting.textContent = formatKRW(firstMeetingVoucher) + (birthOrder === 1 ? ' (첫째)' : ' (둘째 이상)');
+      if (resParentalTotal) resParentalTotal.textContent = formatKRW(parentalTotalLifetime);
+      if (resChildTotal) resChildTotal.textContent = formatKRW(childTotalLifetime);
+      if (resRemainingTotal) resRemainingTotal.textContent = formatKRW(remainingTotal);
+    }
+
+    // Event listeners
+    document.querySelectorAll('input[name="birthOrder"]').forEach(r => {
+      r.addEventListener('change', () => { updateRadioStyles(); calculateSubsidies(); });
+    });
+
+    const childAgeEl = document.getElementById('childAgeMonths');
+    if (childAgeEl) {
+      childAgeEl.addEventListener('input', calculateSubsidies);
+    }
+
+    const careTypeEl = document.getElementById('careType');
+    if (careTypeEl) {
+      careTypeEl.addEventListener('change', calculateSubsidies);
+    }
+
+    const calcBtnEl = document.getElementById('calcBtn');
+    if (calcBtnEl) {
+      calcBtnEl.addEventListener('click', calculateSubsidies);
+    }
+
+    // Set month buttons
+    document.querySelectorAll('.set-month-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const m = this.getAttribute('data-month');
+        if (childAgeEl) {
+          childAgeEl.value = m;
+          calculateSubsidies();
+        }
+      });
+    });
+
+    // Initialize
+    updateRadioStyles();
+    calculateSubsidies();
   </script>
 
-  <!-- Preemptive UX Helper: Auto comma formatting & Result sharing -->
+  <!-- Preemptive UX Helper: Non-destructive Auto comma formatting & Result sharing -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Auto comma on number/text inputs with currency hints
-      const moneyInputs = document.querySelectorAll('input[type="text"], input[type="number"], input[inputmode="numeric"]');
-      moneyInputs.forEach(input => {
-        // Skip specific inputs like year, month, date, percent, id
-        const name = (input.name || input.id || '').toLowerCase();
-        if (name.includes('year') || name.includes('month') || name.includes('day') || name.includes('rate') || name.includes('percent') || name.includes('age') || name.includes('score')) {
-          return;
-        }
-        
-        // Listen to input
-        input.addEventListener('input', function(e) {
-          if (this.type === 'number') return; // native number handles own UI
-          let val = this.value.replace(/[^0-9]/g, '');
-          if (val) {
-            this.value = Number(val).toLocaleString('ko-KR');
-          }
-        });
-      });
+      // Inject Global Result Copy Function
+      window.copyResultToClipboard = function() {
+        const resThisMonth = document.getElementById('resultThisMonth');
+        const resTotalCum = document.getElementById('resTotalCumulative');
+        const resRemaining = document.getElementById('resRemainingTotal');
 
-      // Inject Global Result Copy Function if not exists
-      window.copyResultToClipboard = function(textToCopy, customBtn) {
-        if (!textToCopy) {
-          const resEl = document.querySelector('#result, .result-box, [id*="result"], [class*="result"]');
-          textToCopy = resEl ? resEl.innerText.trim() : window.location.href;
+        const textToCopy = `[2026 아동수당·부모급여 지원금 계산 결과]
+` +
+          `- 이번 달 예상 지급액: ${resThisMonth ? resThisMonth.textContent : ''}
+` +
+          `- 8세 미만 누적 지원 총액: ${resTotalCum ? resTotalCum.textContent : ''}
+` +
+          `- 향후 잔여 지원 가능액: ${resRemaining ? resRemaining.textContent : ''}
+
+` +
+          `👉 실시간 지원금 계산기: ${window.location.href}`;
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(textToCopy).then(() => {
+            showToastNotification('계산 결과가 클립보드에 복사되었습니다!');
+          }).catch(() => {
+            fallbackCopyText(textToCopy);
+          });
+        } else {
+          fallbackCopyText(textToCopy);
         }
-        navigator.clipboard.writeText(textToCopy + "\n\n👉 계산기 바로가기: " + window.location.href).then(() => {
-          showToastNotification('계산 결과가 클립보드에 복사되었습니다!');
-        }).catch(() => {
-          showToastNotification('복사되었습니다: ' + window.location.href);
-        });
       };
+
+      function fallbackCopyText(text) {
+        try {
+          const textArea = document.createElement('textarea');
+          textArea.value = text;
+          textArea.style.position = 'fixed';
+          textArea.style.left = '-9999px';
+          document.body.appendChild(textArea);
+          textArea.focus();
+          textArea.select();
+          const successful = document.execCommand('copy');
+          document.body.removeChild(textArea);
+          if (successful) {
+            showToastNotification('계산 결과가 복사되었습니다!');
+          } else {
+            showToastNotification('복사에 실패했습니다.');
+          }
+        } catch (err) {
+          showToastNotification('복사에 실패했습니다.');
+        }
+      }
 
       function showToastNotification(msg) {
         let toast = document.getElementById('global-ux-toast');
