@@ -2,6 +2,11 @@
 
 <html lang="ko">
 <head>
+    <!-- Performance Optimization: Resource Preconnect -->
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
 <link href="apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/><script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -97,7 +102,18 @@
     max-width: 100% !important;
     overflow: hidden !important;
   }
-</style>
+
+        /* U3 Accessibility: Global Keyboard Focus Ring Standard */
+        :focus-visible {
+            outline: 2px solid #3b82f6 !important;
+            outline-offset: 2px !important;
+        }
+        input:focus-visible, select:focus-visible, textarea:focus-visible, button:focus-visible {
+            outline: 2px solid #2563eb !important;
+            outline-offset: 1px !important;
+        }
+    
+    </style>
 <meta content="summary_large_image" name="twitter:card"/><meta content="2026 아동수당·부모급여·첫만남이용권 통합 계산기" name="twitter:title"/><meta content="우리 아이 태어나서 8세까지 총 얼마 받을까? 부모급여 + 아동수당 + 첫만남이용권 실시간 계산!" name="twitter:description"/><meta content="https://child-subsidy-calc.enjoy-onepage.com/og-image.png" name="twitter:image"/></head>
 <body class="bg-slate-50 text-slate-800 antialiased font-sans min-h-screen flex flex-col justify-between">
 <!-- 상단 슬림 띠배너 (헤더 직하단: 50~60px 슬림형) -->
@@ -140,10 +156,10 @@
 <label class="block text-xs font-bold text-slate-600 mb-1.5">1. 아동 출생 순위 (첫만남이용권 산정)</label>
 <div class="grid grid-cols-2 gap-2">
 <label class="flex items-center justify-center p-3 border rounded-xl cursor-pointer text-xs font-bold transition select-none bg-pink-50 border-pink-500 text-pink-700" id="labelBirth1">
-<input checked="" class="hidden" name="birthOrder" type="radio" value="1"/> 👶 첫째 아이 (200만원)
+<input checked="" class="hidden" name="birthOrder" type="radio" value="1" aria-label="birthOrder" /> 👶 첫째 아이 (200만원)
             </label>
 <label class="flex items-center justify-center p-3 border rounded-xl cursor-pointer text-xs font-bold transition select-none bg-white border-slate-200 text-slate-600" id="labelBirth2">
-<input class="hidden" name="birthOrder" type="radio" value="2"/> 👶 둘째 이상 (300만원)
+<input class="hidden" name="birthOrder" type="radio" value="2" aria-label="birthOrder" /> 👶 둘째 이상 (300만원)
             </label>
 </div>
 </div>
@@ -151,7 +167,7 @@
 <div>
 <label class="block text-xs font-bold text-slate-600 mb-1.5">2. 아이의 현재 월령 (0개월 ~ 95개월)</label>
 <div class="relative">
-<input class="w-full p-3 text-right font-bold text-lg border border-slate-200 bg-slate-50 focus:bg-white rounded-xl focus:ring-2 focus:ring-pink-500 outline-none transition pr-12" id="childAgeMonths" max="95" min="0" placeholder="0" type="number" value="0"/>
+<input class="w-full p-3 text-right font-bold text-lg border border-slate-200 bg-slate-50 focus:bg-white rounded-xl focus:ring-2 focus:ring-pink-500 outline-none transition pr-12" id="childAgeMonths" max="95" min="0" placeholder="0" type="number" value="0" aria-label="0" />
 <span class="absolute right-3.5 top-3.5 text-sm font-bold text-slate-500">개월</span>
 </div>
 <div class="flex gap-1.5 mt-1.5 flex-wrap">
@@ -164,7 +180,7 @@
 <!-- 3. 보육 방식 (어린이집/가정양육) -->
 <div>
 <label class="block text-xs font-bold text-slate-600 mb-1.5">3. 현재 양육 형태</label>
-<select class="w-full p-3 font-semibold text-sm border border-slate-200 bg-slate-50 focus:bg-white rounded-xl focus:ring-2 focus:ring-pink-500 outline-none transition" id="careType">
+<select class="w-full p-3 font-semibold text-sm border border-slate-200 bg-slate-50 focus:bg-white rounded-xl focus:ring-2 focus:ring-pink-500 outline-none transition" id="careType" aria-label="careType">
 <option selected="" value="home">가정 양육 (부모급여 현금 100% 수령)</option>
 <option value="daycare">어린이집 / 놀이방 이용 (보육료 바우처 차감 후 차액 현금 지급)</option>
 </select>
