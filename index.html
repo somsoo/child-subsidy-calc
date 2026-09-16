@@ -3,21 +3,57 @@
 <html lang="ko">
 <head>
 <link href="apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/><script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "2026 아동수당·부모급여·첫만남이용권 통합 수령액 계산기",
-    "description": "2026년 최신 보건복지부 아동복지 기준 적용. 부모급여(0세 월 100만원, 1세 월 50만원), 아동수당(0~7세 월 10만원), 첫만남이용권(첫째 200만/둘째 300만) 총 수령액 및 월별 지급액 실시간 계산기.",
-    "url": "https://child-subsidy-calc.enjoy-onepage.com/",
-    "applicationCategory": "FinanceApplication",
-    "operatingSystem": "All",
-    "browserRequirements": "Requires JavaScript. Requires HTML5.",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "KRW"
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": "https://child-subsidy-calc.enjoy-onepage.com/#webapp",
+      "name": "2026 아동수당·부모급여·첫만남이용권 통합 수령액 계산기",
+      "url": "https://child-subsidy-calc.enjoy-onepage.com/",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript. Requires HTML5.",
+      "description": "2026년 최신 공식 지원금! 0세 월 110만원, 1세 월 60만원 부모급여+아동수당 및 첫만남이용권까지 우리 아이 누적 정부 지원금 실시간 통합 계산기.",
+      "image": "https://child-subsidy-calc.enjoy-onepage.com/og-image.png",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "KRW"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://child-subsidy-calc.enjoy-onepage.com/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "출생 후 언제까지 신청해야 첫 달부터 소급되나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "출생일 포함 60일 이내에 신청하면 출생 달부터 소급하여 전액 지급되며, 60일이 지나면 신청일이 속한 달부터 지급됩니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "부모급여와 아동수당을 동시에 중복으로 받을 수 있나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "네, 부모급여와 아동수당은 완전히 독립된 제도로, 만 0세의 경우 부모급여 100만 원 + 아동수당 10만 원 = 총 110만 원을 매달 수령합니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "해외에 장기 체류할 때도 계속 수령할 수 있나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "아동의 해외 체류 기간이 90일 이상 지속될 경우, 90일이 되는 다음 달부터 귀국 시까지 수당 지급이 일시 정지됩니다."
+          }
+        }
+      ]
     }
-  }
+  ]
+}
   </script>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
