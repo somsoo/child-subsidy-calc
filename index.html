@@ -113,7 +113,7 @@
         }
     
     </style>
-<meta content="summary_large_image" name="twitter:card"/><meta content="2026 아동수당·부모급여·첫만남이용권 통합 계산기" name="twitter:title"/><meta content="우리 아이 태어나서 8세까지 총 얼마 받을까? 부모급여 + 아동수당 + 첫만남이용권 실시간 계산!" name="twitter:description"/><meta content="https://child-subsidy-calc.enjoy-onepage.com/og-image.png" name="twitter:image"/><style id="mobile-hardening-shield">
+<meta content="summary_large_image" name="twitter:card"/><meta content="2026 아동수당·부모급여·첫만남이용권 통합 계산기" name="twitter:title"/><meta content="우리 아이 태어나서 9세 전까지 총 얼마 받을까? 부모급여 + 아동수당 + 첫만남이용권 실시간 계산!" name="twitter:description"/><meta content="https://child-subsidy-calc.enjoy-onepage.com/og-image.png" name="twitter:image"/><style id="mobile-hardening-shield">
   /* 모바일 한글 단어 단위 줄바꿈 보존 & 버튼 텍스트 단일행 쉴드 */
   body, h1, h2, h3, h4, p, span, label {
     word-break: keep-all;
@@ -175,7 +175,7 @@
 <main class="max-w-5xl mx-auto px-4 py-6 w-full flex-grow">
 <div class="mb-4">
 <h1 class="text-xl sm:text-2xl font-black text-slate-900">2026 아동수당·부모급여·첫만남이용권 통합 수령액 계산기</h1>
-<p class="text-xs sm:text-sm text-slate-600 mt-1">보건복지부 최신 기준 0세~8세 미만(총 96개월) 아동 1인당 지급되는 국가 지원금 총액 및 월별 지급액 모의 산출</p>
+<p class="text-xs sm:text-sm text-slate-600 mt-1">보건복지부 최신 기준 0세~9세 미만(총 108개월, 2026년 기준) 아동 1인당 지급되는 국가 지원금 총액 및 월별 지급액 모의 산출</p>
 </div>
 <!-- 2단 반응형 그리드 대시보드 -->
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
@@ -202,9 +202,9 @@
 </div>
 <!-- 2. 아이의 현재 만 나이 (월령) -->
 <div>
-<label class="block text-xs font-bold text-slate-600 mb-1.5">2. 아이의 현재 월령 (0개월 ~ 95개월)</label>
+<label class="block text-xs font-bold text-slate-600 mb-1.5">2. 아이의 현재 월령 (0개월 ~ 107개월)</label>
 <div class="relative">
-<input class="w-full p-3 text-right font-bold text-lg border border-slate-200 bg-slate-50 focus:bg-white rounded-xl focus:ring-2 focus:ring-pink-500 outline-none transition pr-12" id="childAgeMonths" max="95" min="0" placeholder="0" type="number" value="0" aria-label="0" / inputmode="numeric">
+<input class="w-full p-3 text-right font-bold text-lg border border-slate-200 bg-slate-50 focus:bg-white rounded-xl focus:ring-2 focus:ring-pink-500 outline-none transition pr-12" id="childAgeMonths" max="107" min="0" placeholder="0" type="number" value="0" aria-label="0" / inputmode="numeric">
 <span class="absolute right-3.5 top-3.5 text-sm font-bold text-slate-500">개월</span>
 </div>
 <div class="flex gap-1.5 mt-1.5 flex-wrap">
@@ -243,18 +243,18 @@
 </div>
 <div class="space-y-2 text-xs text-slate-600 bg-slate-50 p-4 rounded-xl border border-slate-200">
 <div class="flex justify-between font-bold text-slate-900 pb-1 border-b border-slate-200">
-<span>총 누적 수령 가능 총액 (출생 ~ 8세 미만):</span>
-<span class="text-emerald-600 text-base" id="resTotalCumulative">29,600,000 원</span>
+<span>총 누적 수령 가능 총액 (출생 ~ 9세 미만):</span>
+<span class="text-emerald-600 text-base" id="resTotalCumulative">30,800,000 원</span>
 </div>
 <div class="flex justify-between pt-1"><span>첫만남이용권 바우처 (1회성):</span><span class="font-bold text-slate-800" id="resFirstMeeting">2,000,000 원</span></div>
 <div class="flex justify-between"><span>부모급여 총액 (0~23개월, 24회):</span><span class="font-bold text-blue-600" id="resParentalTotal">18,000,000 원</span></div>
 <div class="flex justify-between pl-3 text-slate-500"><span>- 만 0세 (0~11개월, 월 100만 × 12회):</span><span>12,000,000 원</span></div>
 <div class="flex justify-between pl-3 text-slate-500"><span>- 만 1세 (12~23개월, 월 50만 × 12회):</span><span>6,000,000 원</span></div>
-<div class="flex justify-between"><span>아동수당 총액 (0~95개월, 96회):</span><span class="font-bold text-purple-600" id="resChildTotal">9,600,000 원</span></div>
+<div class="flex justify-between"><span>아동수당 총액 (0~107개월, 108회):</span><span class="font-bold text-purple-600" id="resChildTotal">10,800,000 원</span></div>
 <div class="flex justify-between pl-3 text-slate-500"><span>- 매월 25일 10만원씩 지급:</span><span>월 100,000 원</span></div>
 <div class="flex justify-between border-t border-slate-200 pt-1.5 font-bold text-slate-800">
 <span>향후 잔여 수령 가능액 (현재 월령 이후):</span>
-<span class="text-blue-600" id="resRemainingTotal">29,600,000 원</span>
+<span class="text-blue-600" id="resRemainingTotal">30,800,000 원</span>
 </div>
 </div>
 <div class="p-3 bg-pink-50 text-pink-900 rounded-xl text-xs space-y-1 leading-relaxed border border-pink-100">
@@ -302,8 +302,8 @@
 </tr>
 <tr>
 <td class="p-2.5 font-bold text-slate-900">아동수당</td>
-<td class="p-2.5">0 ~ 95개월 (만 8세 미만)</td>
-<td class="p-2.5 font-bold text-purple-600">월 10만원 (총 960만원)</td>
+<td class="p-2.5">0 ~ 107개월 (만 9세 미만, 2026년 기준)</td>
+<td class="p-2.5 font-bold text-purple-600">월 10만원~ (총 1,080만원~, 지역별 추가)</td>
 <td class="p-2.5">부모의 소득·재산 무관 100% 전원 현금 계좌 입금</td>
 </tr>
 </tbody>
@@ -369,9 +369,9 @@
 </div>
 <div class="p-4 bg-slate-50 dark:bg-slate-800/50 rounded-xl border border-slate-200/80 dark:border-slate-700/80">
 <h4 class="text-base font-bold text-slate-800 dark:text-slate-100 mb-1.5 flex items-center gap-2">
-<span class="w-2 h-2 rounded-full bg-blue-500"></span>아동수당 (만 8세 미만)
+<span class="w-2 h-2 rounded-full bg-blue-500"></span>아동수당 (만 9세 미만)
           </h4>
-<p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">소득 분위와 관계없이 대한민국 국적의 0세부터 만 8세 미만(0~95개월) 모든 아동에게 매월 10만 원씩 기본 지급됩니다.</p>
+<p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">소득 분위와 관계없이 대한민국 국적의 0세부터 만 9세 미만(0~107개월, 2026년 기준) 모든 아동에게 매월 10만 원씩 기본 지급됩니다.</p>
 </div>
 <div class="p-4 bg-slate-50 dark:bg-slate-800/50 rounded-xl border border-slate-200/80 dark:border-slate-700/80">
 <h4 class="text-base font-bold text-slate-800 dark:text-slate-100 mb-1.5 flex items-center gap-2">
@@ -444,6 +444,9 @@
       </div>
 
 
+<!-- KIRO:TOPIC-LINKS START -->
+<section style="max-width:760px;margin:24px auto;padding:0 16px"><h2 style="font-size:1.1rem;font-weight:800;margin:0 0 8px">📌 자세한 안내</h2><a href="/child-allowance-2026.html" style="display:block;padding:10px 12px;margin:6px 0;border:1px solid #e2e8f0;border-radius:10px;background:#fff;color:#1e293b;font-weight:600;text-decoration:none">2026 아동수당: 만 9세 미만으로 확대, 지역에 따라 최대 월 13만 원 →</a></section>
+<!-- KIRO:TOPIC-LINKS END -->
 <footer class="border-t border-slate-200 bg-white py-6 text-center text-xs text-slate-500 space-y-2">
 <div class="flex justify-center gap-4">
 <a class="hover:text-blue-600" href="/about.html">서비스 소개</a>
@@ -492,7 +495,7 @@
 
     function calculateSubsidies() {
       const birthOrder = getSelectedBirthOrder();
-      const currentMonth = Math.min(95, Math.max(0, parseNum(document.getElementById('childAgeMonths').value)));
+      const currentMonth = Math.min(107, Math.max(0, parseNum(document.getElementById('childAgeMonths').value)));
       const careType = document.getElementById('careType').value;
 
       // 1. 첫만남이용권: 첫째 200만원, 둘째 이상 300만원
@@ -526,7 +529,7 @@
 
       // 3. 아동수당: 0~95개월(만 8세 생일 전월까지 총 96개월) 매월 10만원
       let thisMonthChild = 0;
-      if (currentMonth <= 95) {
+      if (currentMonth <= 107) {
         thisMonthChild = 100000;
       }
 
@@ -535,7 +538,7 @@
 
       // 4. 누적 총액 (가정양육 기준 생애 총 수령 가능액)
       const parentalTotalLifetime = (1000000 * 12) + (500000 * 12); // 1,800만원
-      const childTotalLifetime = 100000 * 96; // 960만원
+      const childTotalLifetime = 100000 * 108; // 960만원
       const totalCumulativeLifetime = firstMeetingVoucher + parentalTotalLifetime + childTotalLifetime; // 2,960만 또는 3,060만
 
       // 5. 현재 월령 기준 향후 잔여 수령액
@@ -546,8 +549,8 @@
       }
 
       let remainingChild = 0;
-      if (currentMonth <= 95) {
-        remainingChild = (96 - currentMonth) * 100000;
+      if (currentMonth <= 107) {
+        remainingChild = (108 - currentMonth) * 100000;
       }
 
       const remainingTotal = remainingParental + remainingChild;
@@ -566,7 +569,7 @@
         if (thisMonthTotal > 0) {
           resMonthDesc.textContent = `${thisMonthParentalDesc} + 아동수당 ${formatKRW(thisMonthChild)}`;
         } else {
-          resMonthDesc.textContent = '현재 월령은 정기 지원금 지급 대상 연령(만 8세 미만)을 경과하였습니다.';
+          resMonthDesc.textContent = '현재 월령은 정기 지원금 지급 대상 연령(만 9세 미만)을 경과하였습니다.';
         }
       }
 
@@ -625,7 +628,7 @@
 ` +
           `- 이번 달 예상 지급액: ${resThisMonth ? resThisMonth.textContent : ''}
 ` +
-          `- 8세 미만 누적 지원 총액: ${resTotalCum ? resTotalCum.textContent : ''}
+          `- 9세 미만 누적 지원 총액: ${resTotalCum ? resTotalCum.textContent : ''}
 ` +
           `- 향후 잔여 지원 가능액: ${resRemaining ? resRemaining.textContent : ''}
 
