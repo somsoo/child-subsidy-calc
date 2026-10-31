@@ -1,0 +1,21 @@
+{
+ "app": "child-subsidy-calc",
+ "host": "child-subsidy-calc.enjoy-onepage.com",
+ "watch": false,
+ "status": "unverified",
+ "checked": "",
+ "soft_days": 60,
+ "hard_days": 120,
+ "grace_days": 31,
+ "hide": [],
+ "pages": [
+  "child-allowance-2026.html",
+  "first-meeting-voucher.html",
+  "index.html",
+  "parental-benefit.html"
+ ],
+ "values": {},
+ "sources": {},
+ "valid_until": "2026-12-31",
+ "note": "이 페이지의 금액·비율은 2026년 기준"
+}
