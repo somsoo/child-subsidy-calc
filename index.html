@@ -151,6 +151,34 @@
   .ad-bottom { min-height: 280px !important; }
   .ad-bottom ins { min-height: 280px !important; }
 </style>
+<style id="subsidy-modern-enhancements">
+.subsidy-action-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+@media (max-width: 640px) {
+  .subsidy-action-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.subsidy-action-btn {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.6rem 0.5rem;
+  font-size: 0.775rem;
+  font-weight: 700;
+  border-radius: 0.75rem;
+  transition: all 0.15s;
+  white-space: nowrap;
+  cursor: pointer;
+  border: none;
+}
+</style>
 <!-- KIRO:VALUES START -->
 <script type="application/json" id="kiro-values">{"app":"child-subsidy-calc","valid_until":"2026-12-31","soft_days":60,"hard_days":120,"grace_days":31,"status":"unverified","note":"이 페이지의 금액·비율은 2026년 기준","values":{}}</script>
 <script>/* Kiro value guard v1 (2026-11-01). Values come from #kiro-values, written by the home server's value watcher.
@@ -348,7 +376,7 @@
 <option selected="" value="home">가정 양육 (부모급여 현금 100% 수령)</option>
 <option value="daycare">어린이집 / 놀이방 이용 (보육료 바우처 차감 후 차액 현금 지급)</option>
 </select>
-<p class="text-xs text-slate-500 mt-1">* 0~1세 아동이 어린이집 이용 시 보육료 바우처를 초과하는 부모급여 차액(0세 약 46만원, 1세 약 2.5만원)이 현금 지급됩니다.</p>
+<p class="text-xs text-slate-500 mt-1">* 0~1세 아동이 어린이집 이용 시 보육료 단가에 따라 0세는 현금 차액(41.6만원)이 지급되며, 1세는 보육료 전액이 바우처로 지원됩니다.</p>
 </div>
 <button class="w-full py-3.5 bg-pink-600 hover:bg-pink-700 text-white font-bold rounded-xl shadow-md transition text-sm whitespace-nowrap" id="calcBtn" type="button">
           정부 지원금 수령 견적 산출 🚀
@@ -388,9 +416,17 @@
 <p class="font-bold">🍼 지급일 및 신청 꿀팁:</p>
 <p>아동수당과 부모급여는 <strong>매월 25일</strong> 계좌로 입금됩니다. 출생일로부터 60일 이내에 신청하면 출생 달부터 소급하여 전액 지급받을 수 있습니다(정부24 또는 행복e음 복지로 신청).</p>
 </div>
-<button class="w-full py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl text-xs transition flex items-center justify-center gap-2 whitespace-nowrap" onclick="copyResultToClipboard()" type="button">
-<span>📋</span> 지원금 계산 견적 복사하기
-        </button>
+<div class="subsidy-action-grid">
+  <button class="subsidy-action-btn bg-pink-600 hover:bg-pink-700 text-white shadow-sm" onclick="downloadSubsidyPNG()" type="button">
+    <span>📥</span> 지원금 명세서 PNG 저장
+  </button>
+  <button class="subsidy-action-btn bg-slate-100 hover:bg-slate-200 text-slate-700" onclick="copyResultToClipboard()" type="button">
+    <span>📋</span> 결과 요약 복사
+  </button>
+  <button class="subsidy-action-btn bg-slate-100 hover:bg-slate-200 text-slate-700" onclick="shareSubsidyUrl()" type="button">
+    <span>🔗</span> 링크 공유
+  </button>
+</div>
 </section>
 </div>
 <!-- 법정 지원금 상세 기준표 -->
@@ -705,6 +741,15 @@
       if (resParentalTotal) resParentalTotal.textContent = formatKRW(parentalTotalLifetime);
       if (resChildTotal) resChildTotal.textContent = formatKRW(childTotalLifetime);
       if (resRemainingTotal) resRemainingTotal.textContent = formatKRW(remainingTotal);
+
+      // 7. 양방향 URL 쿼리 파라미터 동기화
+      try {
+        const params = new URLSearchParams();
+        params.set('order', birthOrder);
+        params.set('months', currentMonth);
+        params.set('care', careType);
+        window.history.replaceState({}, '', `${window.location.pathname}?${params.toString()}`);
+      } catch (e) {}
     }
 
     // Event listeners
@@ -738,7 +783,26 @@
       });
     });
 
-    // Initialize
+    // Initialize & URL Query Restore
+    (function restoreFromURL() {
+      try {
+        const q = new URLSearchParams(window.location.search);
+        if (q.has('order')) {
+          const o = q.get('order');
+          const r = document.querySelector(`input[name="birthOrder"][value="${o}"]`);
+          if (r) r.checked = true;
+        }
+        if (q.has('months') && childAgeEl) {
+          const mNum = parseInt(q.get('months'), 10) || 0;
+          childAgeEl.value = Math.min(107, Math.max(0, mNum));
+        }
+        if (q.has('care') && careTypeEl) {
+          careTypeEl.value = q.get('care');
+        }
+      } catch (e) {}
+    })();
+
+    window.calculateSubsidies = calculateSubsidies;
     updateRadioStyles();
     calculateSubsidies();
   </script>
@@ -863,6 +927,200 @@
       }
       document.body.removeChild(ta);
     }
+
+    window.shareSubsidyUrl = function() {
+      var thisMonth = document.getElementById('resultThisMonth') ? document.getElementById('resultThisMonth').textContent : '';
+      var total = document.getElementById('resTotalCumulative') ? document.getElementById('resTotalCumulative').textContent : '';
+      var text = '🍼 2026 영유아 정부지원금 정산 결과\n• 이번 달 지원액: ' + thisMonth + '\n• 생애 총 수령액: ' + total + '\n👉 계산기: ' + window.location.href;
+      if (navigator.share) {
+        navigator.share({
+          title: '2026 아동수당·부모급여 통합 수령액 계산기',
+          text: text,
+          url: window.location.href
+        }).catch(function() {});
+      } else {
+        if (typeof copyResultToClipboard === 'function') {
+          copyResultToClipboard(text);
+        }
+      }
+    };
+
+    window.downloadSubsidyPNG = function() {
+      var canvas = document.createElement('canvas');
+      var ctx = canvas.getContext('2d');
+      var w = 640;
+      var h = 860;
+      canvas.width = w * 2;
+      canvas.height = h * 2;
+      ctx.scale(2, 2);
+
+      // Background
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(0, 0, w, h);
+
+      // Header Banner
+      ctx.fillStyle = '#0f172a';
+      ctx.fillRect(0, 0, w, 115);
+
+      // Header Accent Line
+      ctx.fillStyle = '#db2777';
+      ctx.fillRect(0, 112, w, 3);
+
+      // Header Badge
+      ctx.fillStyle = '#be185d';
+      ctx.fillRect(230, 20, 180, 24);
+
+      ctx.fillStyle = '#fdf2f8';
+      ctx.font = 'bold 11px sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('2026 영유아 공식 지원금', 320, 36);
+
+      // Title
+      ctx.fillStyle = '#ffffff';
+      ctx.font = 'bold 22px -apple-system, BlinkMacSystemFont, "Malgun Gothic", sans-serif';
+      ctx.fillText('정부 육아 지원금 정산 명세서', 320, 72);
+
+      ctx.fillStyle = '#94a3b8';
+      ctx.font = '12px sans-serif';
+      ctx.fillText('아동수당·부모급여·첫만남이용권 공식 모의계산', 320, 96);
+
+      // Card Outer Box
+      ctx.strokeStyle = '#e2e8f0';
+      ctx.lineWidth = 1.5;
+      ctx.strokeRect(30, 135, 580, 680);
+
+      // Monthly Highlight Banner
+      ctx.fillStyle = '#1e293b';
+      ctx.fillRect(50, 155, 540, 100);
+
+      ctx.fillStyle = '#94a3b8';
+      ctx.font = '12px sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('이번 달 바로 입금되는 현금 지원액', 320, 182);
+
+      var resMonth = document.getElementById('resultThisMonth') ? document.getElementById('resultThisMonth').textContent : '';
+      ctx.fillStyle = '#f472b6';
+      ctx.font = 'bold 26px -apple-system, BlinkMacSystemFont, "Malgun Gothic", sans-serif';
+      ctx.fillText(resMonth, 320, 218);
+
+      var resMonthDesc = document.getElementById('resultMonthDesc') ? document.getElementById('resultMonthDesc').textContent : '';
+      ctx.fillStyle = '#cbd5e1';
+      ctx.font = '11px sans-serif';
+      ctx.fillText(resMonthDesc, 320, 242);
+
+      // Section 1: Conditions Table
+      ctx.textAlign = 'left';
+      ctx.fillStyle = '#0f172a';
+      ctx.font = 'bold 14px sans-serif';
+      ctx.fillText('📋 산출 적용 조건', 50, 285);
+
+      var bOrder = (typeof getSelectedBirthOrder === 'function' ? getSelectedBirthOrder() : 1) === 1 ? '첫째 아동' : '둘째 이상 아동';
+      var ageEl = document.getElementById('childAgeMonths');
+      var ageText = (ageEl ? ageEl.value : '0') + '개월 (만 ' + Math.floor((parseInt(ageEl ? ageEl.value : 0, 10) || 0) / 12) + '세)';
+      var careEl = document.getElementById('careType');
+      var careText = careEl && careEl.value === 'daycare' ? '어린이집 / 놀이방 (보육료 바우처 차감)' : '가정 양육 (현금 100% 수령)';
+
+      var conditions = [
+        ['출생 순위', bOrder],
+        ['자녀 월령', ageText],
+        ['양육 형태', careText]
+      ];
+
+      var y = 310;
+      ctx.font = '12px sans-serif';
+      conditions.forEach(function(item) {
+        ctx.fillStyle = '#64748b';
+        ctx.fillText(item[0], 60, y);
+        ctx.fillStyle = '#1e293b';
+        ctx.font = 'bold 12px sans-serif';
+        ctx.textAlign = 'right';
+        ctx.fillText(item[1], 580, y);
+        ctx.textAlign = 'left';
+        ctx.font = '12px sans-serif';
+        ctx.strokeStyle = '#f1f5f9';
+        ctx.beginPath();
+        ctx.moveTo(60, y + 8);
+        ctx.lineTo(580, y + 8);
+        ctx.stroke();
+        y += 28;
+      });
+
+      // Section 2: Lifetime & Breakdown Table
+      y += 10;
+      ctx.fillStyle = '#0f172a';
+      ctx.font = 'bold 14px sans-serif';
+      ctx.fillText('💰 정부 지원금 수령 내역', 50, y);
+
+      var firstMeeting = document.getElementById('resFirstMeeting') ? document.getElementById('resFirstMeeting').textContent : '';
+      var parentalTotal = document.getElementById('resParentalTotal') ? document.getElementById('resParentalTotal').textContent : '';
+      var childTotal = document.getElementById('resChildTotal') ? document.getElementById('resChildTotal').textContent : '';
+      var cumulative = document.getElementById('resTotalCumulative') ? document.getElementById('resTotalCumulative').textContent : '';
+      var remaining = document.getElementById('resRemainingTotal') ? document.getElementById('resRemainingTotal').textContent : '';
+
+      var breakdown = [
+        ['첫만남이용권 바우처 (출생 1회)', firstMeeting, '#334155', false],
+        ['부모급여 총액 (0~23개월 총 24회)', parentalTotal, '#2563eb', false],
+        ['아동수당 총액 (0~107개월 총 108회)', childTotal, '#7c3aed', false],
+        ['총 누적 수령 총액 (출생~만 9세)', cumulative, '#059669', true],
+        ['향후 잔여 지원 가능액 (현재 월령 이후)', remaining, '#db2777', true]
+      ];
+
+      y += 24;
+      breakdown.forEach(function(item) {
+        if (item[3]) {
+          ctx.fillStyle = '#f8fafc';
+          ctx.fillRect(50, y - 14, 540, 26);
+        }
+        ctx.fillStyle = item[3] ? '#0f172a' : '#64748b';
+        ctx.font = (item[3] ? 'bold ' : '') + '12px sans-serif';
+        ctx.fillText(item[0], 60, y + 2);
+
+        ctx.fillStyle = item[2];
+        ctx.font = 'bold 13px sans-serif';
+        ctx.textAlign = 'right';
+        ctx.fillText(item[1], 580, y + 2);
+        ctx.textAlign = 'left';
+
+        ctx.strokeStyle = '#e2e8f0';
+        ctx.beginPath();
+        ctx.moveTo(60, y + 10);
+        ctx.lineTo(580, y + 10);
+        ctx.stroke();
+        y += 32;
+      });
+
+      // Legal Basis Notice Box
+      y += 10;
+      ctx.fillStyle = '#fdf2f8';
+      ctx.fillRect(50, y, 540, 70);
+      ctx.strokeStyle = '#fbcfe8';
+      ctx.strokeRect(50, y, 540, 70);
+
+      ctx.fillStyle = '#be185d';
+      ctx.font = 'bold 11px sans-serif';
+      ctx.fillText('📌 지급 기준 및 법적 유의사항', 65, y + 22);
+
+      ctx.fillStyle = '#475569';
+      ctx.font = '10.5px sans-serif';
+      ctx.fillText('• 아동수당(만 9세 미만 월 10만원)과 부모급여는 매월 25일 지급됩니다.', 65, y + 40);
+      ctx.fillText('• 어린이집 이용 시 0세는 차액 41.6만원 지급, 1세는 보육료 전액 바우처 지원됩니다.', 65, y + 56);
+
+      // Footer
+      ctx.fillStyle = '#94a3b8';
+      ctx.font = '11px sans-serif';
+      ctx.textAlign = 'center';
+      var todayStr = new Date().toLocaleDateString('ko-KR');
+      ctx.fillText('발행일자: ' + todayStr + ' | child-subsidy-calc.enjoy-onepage.com', 320, 800);
+
+      // Download action
+      var link = document.createElement('a');
+      link.download = '2026_영유아_정부지원금_정산_명세서.png';
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+      if (typeof showToastNotification === 'function') {
+        showToastNotification('명세서 이미지가 저장되었습니다! 📥');
+      }
+    };
   </script>
 </body>
 </html>
