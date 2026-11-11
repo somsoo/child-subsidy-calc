@@ -442,7 +442,7 @@
 </section>
 
     <!-- ADSENSE START: mid -->
-<div class="ad-box ad-mid" style="max-width:1080px;margin:16px auto;padding:0 14px;text-align:center;">
+<div class="ad-box ad-mid" style="width:100%;box-sizing:border-box;max-width:1080px;margin:16px auto;padding:0 14px;text-align:center;">
   <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2228289204702106" data-ad-slot="1186914926" data-ad-format="auto" data-full-width-responsive="true"></ins>
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>
@@ -457,7 +457,7 @@
           <span class="text-blue-600 group-open:rotate-180 transition transform">▼</span>
         </summary>
         <p class="mt-3 text-gray-600 text-xs leading-relaxed">
-          아닙니다. 100% 사용자의 기기 브라우저 메모리 내에서만 연산되며, 어떠한 금융/개인 데이터도 외부로 전송되지 않습니다.
+          입력하신 자녀 월령·양육 형태 정보는 브라우저에서만 계산되며 별도 서버에 저장하지 않습니다(광고 제공을 위한 Google AdSense 쿠키 처리는 개인정보처리방침 참고).
         </p>
       </details>
       
@@ -485,7 +485,7 @@
 <!-- 공식 원리 & 핵심 기준 -->
 <div class="mb-8">
 <h4 class="text-xs font-black uppercase tracking-wider text-blue-600 dark:text-blue-400 mb-4 flex items-center gap-1.5">
-<span>⚖️</span> 핵심 산출 기준 및 법정 원리
+<span>📌</span> 2026년 영유아 지원금 항목별 지급 기준
       </h4>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-3.5">
 <div class="p-4 bg-slate-50 dark:bg-slate-800/50 rounded-xl border border-slate-200/80 dark:border-slate-700/80">
@@ -567,7 +567,7 @@
 
       <!-- 2026 Legal Basis & Disclaimer -->
       <div class="mt-8 mb-4 p-3 bg-slate-50 dark:bg-slate-800/50 rounded-lg text-xs text-slate-500 text-center border border-slate-200 dark:border-slate-700">
-        <p>※ 이 도구의 결과는 참고용이며 법적 효력이 없습니다.</p>
+        <p>※ 기준: 아동수당법, 보건복지부 2026년 부모급여·보육료 지원단가 안내 (2026년 11월 9일 확인). 이 도구의 결과는 참고용이며 법적 효력이 없습니다.</p>
       </div>
 
 
@@ -629,7 +629,7 @@
       const firstMeetingVoucher = (birthOrder === 1) ? 2000000 : 3000000;
 
       // 2. 부모급여: 만 0세(0~11개월) 월 100만, 만 1세(12~23개월) 월 50만
-      // 어린이집 이용 시 보육료 바우처 차감: 0세(약 54만원 차감 -> 현금 약 460,000원), 1세(약 47.5만원 차감 -> 현금 약 25,000원)
+      // 어린이집 이용 시 보육료 바우처 차감: 0세(58.4만원 차감 -> 현금 416,000원), 1세(51.5만원 바우처 전액 지원 -> 현금 차액 0원)
       let thisMonthParental = 0;
       let thisMonthParentalDesc = '';
 
@@ -638,16 +638,16 @@
           thisMonthParental = 1000000;
           thisMonthParentalDesc = '만 0세 부모급여 100만원';
         } else {
-          thisMonthParental = 460000;
-          thisMonthParentalDesc = '만 0세 보육료 차감 후 부모급여 차액 46만원';
+          thisMonthParental = 416000;
+          thisMonthParentalDesc = '만 0세 보육료(58.4만원) 차감 후 부모급여 차액 41.6만원';
         }
       } else if (currentMonth <= 23) {
         if (careType === 'home') {
           thisMonthParental = 500000;
           thisMonthParentalDesc = '만 1세 부모급여 50만원';
         } else {
-          thisMonthParental = 25000;
-          thisMonthParentalDesc = '만 1세 보육료 차감 후 부모급여 차액 2.5만원';
+          thisMonthParental = 0;
+          thisMonthParentalDesc = '만 1세 보육료(51.5만원) 바우처 전액 지원 (현금 차액 0원·추가 자부담 없음)';
         }
       } else {
         thisMonthParental = 0;
@@ -665,14 +665,14 @@
 
       // 4. 누적 총액 (가정양육 기준 생애 총 수령 가능액)
       const parentalTotalLifetime = (1000000 * 12) + (500000 * 12); // 1,800만원
-      const childTotalLifetime = 100000 * 108; // 960만원
+      const childTotalLifetime = 100000 * 108; // 1,080만원 (0~107개월)
       const totalCumulativeLifetime = firstMeetingVoucher + parentalTotalLifetime + childTotalLifetime; // 2,960만 또는 3,060만
 
       // 5. 현재 월령 기준 향후 잔여 수령액
       let remainingParental = 0;
       for (let m = currentMonth; m <= 23; m++) {
-        if (m <= 11) remainingParental += (careType === 'home' ? 1000000 : 460000);
-        else remainingParental += (careType === 'home' ? 500000 : 25000);
+        if (m <= 11) remainingParental += (careType === 'home' ? 1000000 : 416000);
+        else remainingParental += (careType === 'home' ? 500000 : 0);
       }
 
       let remainingChild = 0;
